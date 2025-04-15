@@ -6,6 +6,9 @@ ENV DEBIAN_FRONTEND=noninteractive \
     PIP_NO_CACHE_DIR=on \
     SHELL=/bin/bash
 
+# Install git and other required packages
+RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
+
 # Install TTS Generation Web UI
 ARG INDEX_URL
 ARG TORCH_VERSION
