@@ -1,5 +1,4 @@
-ARG BASE_IMAGE
-FROM ${BASE_IMAGE}
+FROM pytorch/pytorch:2.0.1-cuda11.7-cudnn8-runtime
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 ENV DEBIAN_FRONTEND=noninteractive \
