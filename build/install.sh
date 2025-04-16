@@ -7,7 +7,7 @@ set -e
 python3 -m venv --system-site-packages /venv
 
 # Clone the git repo of TTS Generation WebUI and set version
-git clone https://github.com/rsxdalv/tts-generation-webui.git
+git clone https://github.com/rsxdalv/tts-generation-webui.git /tts-generation-webui
 cd /tts-generation-webui
 git checkout ${TTS_COMMIT}
 

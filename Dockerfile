@@ -9,15 +9,13 @@ ENV DEBIAN_FRONTEND=noninteractive \
 # Install git and other required packages
 RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
 
+# Set default values for build arguments
+ENV INDEX_URL="https://download.pytorch.org/whl/cu117" \
+    TORCH_VERSION="2.0.1+cu117" \
+    XFORMERS_VERSION="0.0.27" \
+    TTS_COMMIT="main"
+
 # Install TTS Generation Web UI
-ARG INDEX_URL
-ARG TORCH_VERSION
-ARG XFORMERS_VERSION
-ARG TTS_COMMIT
-ENV INDEX_URL=${INDEX_URL}
-ENV TORCH_VERSION=${TORCH_VERSION}
-ENV XFORMERS_VERSION=${XFORMERS_VERSION}
-ENV TTS_COMMIT=${TTS_COMMIT}
 COPY --chmod=755 build/install.sh /install.sh
 RUN /install.sh && rm /install.sh
 
